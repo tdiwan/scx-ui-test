@@ -1,0 +1,9 @@
+<h2>Summary</h2>
+<div class="summary-labels">
+    <label>Correct : {{score}} </label><br>
+    <label>Wrong : {{ctWrongScore}} </label><br>
+    <label>Questions Answered : </label><br>
+    <label>Final Score : {{ctFinalScoreInPercentage}}% </label><br>
+</div>
+<button name="restart"  id="restart" type="submit" class="btn btn-primary waves-light">Restart Quiz</button>   
+<span *ngIf="isOutOf">success</span>
