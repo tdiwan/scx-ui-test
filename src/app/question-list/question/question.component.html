@@ -1,0 +1,38 @@
+<div *ngIf="question">
+  <h2>Question {{question.index}}</h2>
+  <br/>
+  <div>
+    <h3>{{ question.question }}</h3>
+    <form #formDirective="ngForm" [formGroup]="questionForm" class="example-container" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <div *ngIf="question.options.length > 1; else inputText">
+          <div *ngFor="let opt of question.options;let i = index;" class="radio"
+          [ngClass]="{ 'is-invalid': isSubmitted && f.answer.errors }">
+          <label>
+            <input ngModel type="radio" [checked]="opt.id == selectedAns" formControlName="answer" class="form" name="answer"
+              [value]="opt.id"> {{opt.name}}
+          </label>
+        </div>
+        <!-- <p>
+          {{formDirective.value | json}}
+        </p> -->
+        </div>
+        <ng-template #inputText>
+          <label>
+            <input type ="text" formControlName="answer"  class="form" name="answer">
+          </label>
+        </ng-template>
+      </div>
+      <div class="form-actions row">
+        <div class="col-md-3">
+            <button *ngIf="nextQuestion<1" type="submit" class="btn btn-primary waves-light">Finish</button>
+        </div>
+        <div class="col-md-3">
+          <nav class="float-right">
+            <button class = "btn-nxt" [routerLink]="nextUrl" [class.disabled]="nextQuestion==-1" class="btn btn-primary waves-light">Next</button>
+          </nav>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

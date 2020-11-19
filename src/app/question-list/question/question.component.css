@@ -1,0 +1,14 @@
+.invalid-feedback{
+  display:none;
+}
+h3,.h3{
+  font-family: auto;
+  font-size: 1rem;
+}
+h2{
+  font-family: auto;
+  padding-top: 15px;
+}
+.form-group{
+  font-family: ui-monospace;
+}
